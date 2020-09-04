@@ -14,13 +14,13 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 import Tooltip from "@material-ui/core/Tooltip";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  TimePicker,
-  DatePicker,
-  DateTimePicker,
-} from "@material-ui/pickers";
+// import DateFnsUtils from "@date-io/date-fns";
+// import {
+//   MuiPickersUtilsProvider,
+//   TimePicker,
+//   DatePicker,
+//   DateTimePicker,
+// } from "@material-ui/pickers";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -155,31 +155,32 @@ class MTableFilterRow extends React.Component {
   };
 
   renderDateTypeFilter = (columnDef) => {
-    const onDateInputChange = (date) =>
-      this.props.onFilterChanged(columnDef.tableData.id, date);
-    const pickerProps = {
-      value: columnDef.tableData.filterValue || null,
-      onChange: onDateInputChange,
-      placeholder: this.getLocalizedFilterPlaceHolder(columnDef),
-      clearable: true,
-    };
+    throw new Error('Date type is not supported')
+    // const onDateInputChange = (date) =>
+    //   this.props.onFilterChanged(columnDef.tableData.id, date);
+    // const pickerProps = {
+    //   value: columnDef.tableData.filterValue || null,
+    //   onChange: onDateInputChange,
+    //   placeholder: this.getLocalizedFilterPlaceHolder(columnDef),
+    //   clearable: true,
+    // };
 
-    let dateInputElement = null;
-    if (columnDef.type === "date") {
-      dateInputElement = <DatePicker {...pickerProps} />;
-    } else if (columnDef.type === "datetime") {
-      dateInputElement = <DateTimePicker {...pickerProps} />;
-    } else if (columnDef.type === "time") {
-      dateInputElement = <TimePicker {...pickerProps} />;
-    }
-    return (
-      <MuiPickersUtilsProvider
-        utils={DateFnsUtils}
-        locale={this.props.localization.dateTimePickerLocalization}
-      >
-        {dateInputElement}
-      </MuiPickersUtilsProvider>
-    );
+    // let dateInputElement = null;
+    // if (columnDef.type === "date") {
+    //   dateInputElement = <DatePicker {...pickerProps} />;
+    // } else if (columnDef.type === "datetime") {
+    //   dateInputElement = <DateTimePicker {...pickerProps} />;
+    // } else if (columnDef.type === "time") {
+    //   dateInputElement = <TimePicker {...pickerProps} />;
+    // }
+    // return (
+    //   <MuiPickersUtilsProvider
+    //     utils={DateFnsUtils}
+    //     locale={this.props.localization.dateTimePickerLocalization}
+    //   >
+    //     {dateInputElement}
+    //   </MuiPickersUtilsProvider>
+    // );
   };
 
   getComponentForColumn(columnDef) {

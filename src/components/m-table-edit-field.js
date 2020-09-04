@@ -7,13 +7,13 @@ import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  TimePicker,
-  DatePicker,
-  DateTimePicker,
-} from "@material-ui/pickers";
+// import DateFnsUtils from "@date-io/date-fns";
+// import {
+//   MuiPickersUtilsProvider,
+//   TimePicker,
+//   DatePicker,
+//   DateTimePicker,
+// } from "@material-ui/pickers";
 import PropTypes from "prop-types";
 
 class MTableEditField extends React.Component {
@@ -86,73 +86,76 @@ class MTableEditField extends React.Component {
   }
 
   renderDateField() {
-    const dateFormat =
-      this.props.columnDef.dateSetting &&
-      this.props.columnDef.dateSetting.format
-        ? this.props.columnDef.dateSetting.format
-        : "dd.MM.yyyy";
-    return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={this.props.locale}>
-        <DatePicker
-          {...this.getProps()}
-          format={dateFormat}
-          value={this.props.value || null}
-          onChange={this.props.onChange}
-          clearable
-          InputProps={{
-            style: {
-              fontSize: 13,
-            },
-          }}
-          inputProps={{
-            "aria-label": `${this.props.columnDef.title}: press space to edit`,
-          }}
-        />
-      </MuiPickersUtilsProvider>
-    );
+    throw new Error('Date field is not supported')
+    // const dateFormat =
+    //   this.props.columnDef.dateSetting &&
+    //   this.props.columnDef.dateSetting.format
+    //     ? this.props.columnDef.dateSetting.format
+    //     : "dd.MM.yyyy";
+    // return (
+    //   <MuiPickersUtilsProvider utils={DateFnsUtils} locale={this.props.locale}>
+    //     <DatePicker
+    //       {...this.getProps()}
+    //       format={dateFormat}
+    //       value={this.props.value || null}
+    //       onChange={this.props.onChange}
+    //       clearable
+    //       InputProps={{
+    //         style: {
+    //           fontSize: 13,
+    //         },
+    //       }}
+    //       inputProps={{
+    //         "aria-label": `${this.props.columnDef.title}: press space to edit`,
+    //       }}
+    //     />
+    //   </MuiPickersUtilsProvider>
+    // );
   }
   renderTimeField() {
-    return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={this.props.locale}>
-        <TimePicker
-          {...this.getProps()}
-          format="HH:mm:ss"
-          value={this.props.value || null}
-          onChange={this.props.onChange}
-          clearable
-          InputProps={{
-            style: {
-              fontSize: 13,
-            },
-            inputProps: {
-              "aria-label": `${this.props.columnDef.title}: press space to edit`,
-            },
-          }}
-        />
-      </MuiPickersUtilsProvider>
-    );
+    throw new Error('Time field is not supported')
+    // return (
+    //   <MuiPickersUtilsProvider utils={DateFnsUtils} locale={this.props.locale}>
+    //     <TimePicker
+    //       {...this.getProps()}
+    //       format="HH:mm:ss"
+    //       value={this.props.value || null}
+    //       onChange={this.props.onChange}
+    //       clearable
+    //       InputProps={{
+    //         style: {
+    //           fontSize: 13,
+    //         },
+    //         inputProps: {
+    //           "aria-label": `${this.props.columnDef.title}: press space to edit`,
+    //         },
+    //       }}
+    //     />
+    //   </MuiPickersUtilsProvider>
+    // );
   }
 
   renderDateTimeField() {
-    return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={this.props.locale}>
-        <DateTimePicker
-          {...this.getProps()}
-          format="dd.MM.yyyy HH:mm:ss"
-          value={this.props.value || null}
-          onChange={this.props.onChange}
-          clearable
-          InputProps={{
-            style: {
-              fontSize: 13,
-            },
-            inputProps: {
-              "aria-label": `${this.props.columnDef.title}: press space to edit`,
-            },
-          }}
-        />
-      </MuiPickersUtilsProvider>
-    );
+    throw new Error('Datetime field is not supported')
+    // return (
+    //   <MuiPickersUtilsProvider utils={DateFnsUtils} locale={this.props.locale}>
+    //     <DateTimePicker
+    //       {...this.getProps()}
+    //       format="dd.MM.yyyy HH:mm:ss"
+    //       value={this.props.value || null}
+    //       onChange={this.props.onChange}
+    //       clearable
+    //       InputProps={{
+    //         style: {
+    //           fontSize: 13,
+    //         },
+    //         inputProps: {
+    //           "aria-label": `${this.props.columnDef.title}: press space to edit`,
+    //         },
+    //       }}
+    //     />
+    //   </MuiPickersUtilsProvider>
+    // );
   }
 
   renderTextField() {

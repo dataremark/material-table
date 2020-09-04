@@ -1,4 +1,4 @@
-import formatDate from "date-fns/format";
+// import formatDate from "date-fns/format";
 import { byString } from "./";
 
 export default class DataManager {
@@ -666,58 +666,60 @@ export default class DataManager {
                 );
               });
             } else if (["date", "datetime"].includes(type)) {
-              this.filteredData = this.filteredData.filter((row) => {
-                const value = this.getFieldValue(row, columnDef);
+              throw new Error('Date and datetime types are not supported')
+              // this.filteredData = this.filteredData.filter((row) => {
+              //   const value = this.getFieldValue(row, columnDef);
 
-                const currentDate = value ? new Date(value) : null;
+              //   const currentDate = value ? new Date(value) : null;
 
-                if (currentDate && currentDate.toString() !== "Invalid Date") {
-                  const selectedDate = tableData.filterValue;
-                  let currentDateToCompare = "";
-                  let selectedDateToCompare = "";
+              //   if (currentDate && currentDate.toString() !== "Invalid Date") {
+              //     const selectedDate = tableData.filterValue;
+              //     let currentDateToCompare = "";
+              //     let selectedDateToCompare = "";
 
-                  if (type === "date") {
-                    currentDateToCompare = formatDate(
-                      currentDate,
-                      "MM/dd/yyyy"
-                    );
-                    selectedDateToCompare = formatDate(
-                      selectedDate,
-                      "MM/dd/yyyy"
-                    );
-                  } else if (type === "datetime") {
-                    currentDateToCompare = formatDate(
-                      currentDate,
-                      "MM/dd/yyyy - HH:mm"
-                    );
-                    selectedDateToCompare = formatDate(
-                      selectedDate,
-                      "MM/dd/yyyy - HH:mm"
-                    );
-                  }
+              //     if (type === "date") {
+              //       currentDateToCompare = formatDate(
+              //         currentDate,
+              //         "MM/dd/yyyy"
+              //       );
+              //       selectedDateToCompare = formatDate(
+              //         selectedDate,
+              //         "MM/dd/yyyy"
+              //       );
+              //     } else if (type === "datetime") {
+              //       currentDateToCompare = formatDate(
+              //         currentDate,
+              //         "MM/dd/yyyy - HH:mm"
+              //       );
+              //       selectedDateToCompare = formatDate(
+              //         selectedDate,
+              //         "MM/dd/yyyy - HH:mm"
+              //       );
+              //     }
 
-                  return currentDateToCompare === selectedDateToCompare;
-                }
+              //     return currentDateToCompare === selectedDateToCompare;
+              //   }
 
-                return true;
-              });
+              //   return true;
+              // });
             } else if (type === "time") {
-              this.filteredData = this.filteredData.filter((row) => {
-                const value = this.getFieldValue(row, columnDef);
-                const currentHour = value || null;
+              throw new Error('Time type is not supported')
+              // this.filteredData = this.filteredData.filter((row) => {
+              //   const value = this.getFieldValue(row, columnDef);
+              //   const currentHour = value || null;
 
-                if (currentHour) {
-                  const selectedHour = tableData.filterValue;
-                  const currentHourToCompare = formatDate(
-                    selectedHour,
-                    "HH:mm"
-                  );
+              //   if (currentHour) {
+              //     const selectedHour = tableData.filterValue;
+              //     const currentHourToCompare = formatDate(
+              //       selectedHour,
+              //       "HH:mm"
+              //     );
 
-                  return currentHour === currentHourToCompare;
-                }
+              //     return currentHour === currentHourToCompare;
+              //   }
 
-                return true;
-              });
+              //   return true;
+              // });
             } else {
               this.filteredData = this.filteredData.filter((row) => {
                 const value = this.getFieldValue(row, columnDef);
